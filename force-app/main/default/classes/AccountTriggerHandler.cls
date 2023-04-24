@@ -10,9 +10,8 @@ public with sharing class AccountTriggerHandler extends TriggerHandlerImpl {
     public override void beforeInsert(List<SObject> newRecords) {
         System.debug('Account before insert trigger called');
         System.debug(newRecords);
-        Accounts accounts= new Accounts(newRecords);
-        accounts.executeBusinessLogic();
-
+        Accounts accounts = new Accounts(newRecords);
+        accounts.onApplyBeforeInsert();
     }
 
     public override void beforeUpdate(List<SObject> oldRecords, List<SObject> newRecords, Map<Id, SObject> oldRecordMap, Map<Id, SObject> newRecordMap) {
